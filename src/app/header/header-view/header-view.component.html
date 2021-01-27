@@ -1,0 +1,25 @@
+<div class="Header__Items">
+    <div class="logo">
+        <h3>UI Interfaz</h3>
+    </div>
+
+    <a routerLink="/basket"><b>Home</b></a>
+    <a href="#" (click)="this.headerService.resetBasketCount()"><b>Products</b></a>
+    <a href="#" (click)="this.headerService.addUnit_Basket()"><b>Contact us</b></a>
+    <button routerLink="/basket">Testeop</button>
+
+
+    <!-- Nebular's Toggle component offer an @Output property which uses an Event Emitter to comunicate it's father when the toggle has been changed. In this case, each time the user click the toggle, the web theme is changed -->
+    <nb-toggle class="toggle" (checkedChange)="this.headerService.changeTheme()"></nb-toggle>
+
+
+    <a href="" class="basket">
+        <nb-icon icon="shopping-cart" class="tot"></nb-icon>
+        <!-- Nebular Badge component's property 'text' uses Angular's property binding, (), in order to show the basket count property (On header service) -->
+        <nb-badge  *ngIf="this.headerService.basketCount > 0"
+             [text]="this.headerService.basketCount" position="top right" status="danger" class="pop">
+        </nb-badge>
+    </a>
+
+</div>
+
