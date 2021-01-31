@@ -1,0 +1,11 @@
+<ng-template #dialog let-data let-ref="dialogRef">
+    <nb-card>
+    <nb-card-header>ABOUT US</nb-card-header>
+    <nb-card-body>We are a music online shop where you can find instruments and other musician material.</nb-card-body>
+    <nb-card-footer>
+        <button nbButton (click)="ref.close()" status="primary" fullWidth>Close Dialog</button>
+    </nb-card-footer>
+    </nb-card>
+</ng-template>
+
+<button nbButton (click)="openDialog(dialog)" status="info" fullWidth>Open Dialog</button>

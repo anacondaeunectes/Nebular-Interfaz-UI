@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BasketServService } from 'src/app/basket/basket-serv.service';
 import { HeaderServService } from '../header-serv.service';
 
 @Component({
@@ -8,13 +9,9 @@ import { HeaderServService } from '../header-serv.service';
 })
 export class HeaderViewComponent implements OnInit {
 
-  constructor(public headerService:HeaderServService) { }
+  constructor(public headerService:HeaderServService, public basketService:BasketServService) { }
 
   ngOnInit(): void {
-  }
-
-  test(){
-    console.log('piksd');
   }
 
 }

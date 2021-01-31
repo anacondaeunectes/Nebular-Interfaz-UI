@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderViewComponent } from './header-view/header-view.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 import { NbMenuModule, NbIconModule, NbBadgeModule, NbToggleModule } from "@nebular/theme";
-
 
 
 @NgModule({
@@ -13,7 +13,8 @@ import { NbMenuModule, NbIconModule, NbBadgeModule, NbToggleModule } from "@nebu
     NbMenuModule,
     NbIconModule,
     NbBadgeModule,
-    NbToggleModule
+    NbToggleModule,
+    AppRoutingModule
   ],
   exports: [
     HeaderViewComponent

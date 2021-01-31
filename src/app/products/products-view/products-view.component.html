@@ -1,0 +1,29 @@
+<nb-flip-card *ngFor="let product of this.productService.products">
+    <nb-card-front>
+      <nb-card [size]="'tiny'">
+        <nb-card-header>
+            {{ product.name }}
+            <button nbButton  class="buyButton" (click)="this.basketService.addProductToBasket(product)">Comprar<nb-icon icon="shopping-cart-outline"></nb-icon></button>
+        </nb-card-header>
+        <nb-card-body>
+            
+            <div class="imgWrapper">
+                <img [src]="product.img_src" alt="">
+            </div>
+        
+            <span class="cardText">{{ product.description }}</span>
+        </nb-card-body>
+      </nb-card>
+    </nb-card-front>
+    <nb-card-back>
+      <nb-card accent="primary">
+        <nb-card-header>
+            {{ product.name }}
+            <button nbButton  class="buyButton" (click)="this.basketService.addProductToBasket(product)">Comprar<nb-icon icon="shopping-cart-outline"></nb-icon></button>
+        </nb-card-header>
+        <nb-card-body>
+          {{ product.detailedDescription }}
+        </nb-card-body>
+      </nb-card>
+    </nb-card-back>
+  </nb-flip-card>

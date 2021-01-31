@@ -1,10 +1,62 @@
-<!-- <nb-icon icon="shopping-cart">
-    <nb-badge text="99+" status="danger" ></nb-badge>
-</nb-icon> -->
+<nb-card>
+  <nb-card-body>
+    <nb-stepper orientation="horizontal" disableStepNavigation="true">
 
-<button nbButton class="ff" shape="semi-round">
-    <nb-icon icon="shopping-cart"></nb-icon>
-    <nb-badge  position="bottom right" status="danger" dotMode=false></nb-badge>
-</button>
+      <nb-step label="Review basket">
+        <h4>Review your basket</h4>
+        <nb-list *ngIf="this.basketService.getTotalProductsBasket() > 0; else emptyBasket">
+          <nb-list-item *ngFor="let article of this.basketService.basketProducts; index as i">
+            <div class="imgWrapper">
+              <img [src]="article.product_ref | getProductImage" alt="" class="popopo">
+            </div>
+            <span>{{ article.product_ref | getProductName }}</span>
+            <span class="price">x{{ this.basketService.basketProducts[i].basketNumber }}</span>
+              
+          </nb-list-item>
+        </nb-list>
+        <button nbButton disabled nbStepperNext>prev</button>
+        <button nbButton [disabled]="this.basketService.getTotalProductsBasket() == 0" nbStepperNext>next</button>
+      </nb-step>
 
+      <nb-step label="Delivery info">
+        <ng-container *ngTemplateOutlet="secondStep"></ng-container>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>next</button>
+      </nb-step>
 
+      <nb-step label="Confirm purchase">
+        <h4>Confirm your purchase</h4>
+        <p class="lorem">
+          Last step, when you press the purchase button your order will be processed.
+        </p>
+        <button nbButton nbStepperPrevious>prev</button>
+        <button nbButton nbStepperNext>Purchase</button>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
+
+<ng-template #emptyBasket>
+  <h6>No products have been added to basket</h6>
+</ng-template>
+
+<ng-template #firstStep>
+
+</ng-template>
+
+<ng-template #secondStep>
+  <h4>Delivery info</h4>
+  <div class="ppp">
+    <label>Name <br><input nbInput fullWidth placeholder="Enter your name..." class="input"/></label><br>
+    <label>Surname <br><input nbInput fullWidth placeholder="Enter your surname..." class="input"/></label><br>
+    <label>Email <br><input nbInput required fullWidth placeholder="Enter your email..." class="input"/></label><br>
+    <label>Address <br><input nbInput fullWidth placeholder="Enter your address..." class="input"/></label><br>
+    <label>Comment <br><textarea nbInput fullWidth placeholder="Enter any comment related with delivery..." class="input"></textarea></label><br>
+  </div>
+
+</ng-template>
+
+<ng-template #thirdStep>
+  <h4>Confirm your purchase</h4>
+  
+</ng-template>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BasketServiceService } from '../basket-service.service';
+import { BasketServService } from '../basket-serv.service';
+
 
 @Component({
   selector: 'app-basket-view',
@@ -8,10 +9,10 @@ import { BasketServiceService } from '../basket-service.service';
 })
 export class BasketViewComponent implements OnInit {
 
-  constructor(public basketService: BasketServiceService) { }
+  constructor(public basketService:BasketServService) { }
 
   ngOnInit(): void {
-    console.log(this.basketService);
+    // console.log(this.basketService);
     console.log('asd')
   }
 
